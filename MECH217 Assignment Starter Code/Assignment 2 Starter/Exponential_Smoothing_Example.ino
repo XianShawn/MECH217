@@ -59,5 +59,5 @@ void loop() {
 
   Serial.printf("%8.3f, %5u, %9.3f\n", timeNowS, a, as);
 
-  if(digitalRead(BUTTON_PIN)) delay(50);  // if the button is pushed, delay 20    
+  if(digitalRead(BUTTON_PIN)) delay(50);  // if the button is pushed, delay 50    
 }
