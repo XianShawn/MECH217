@@ -1,11 +1,24 @@
-//import Wire library for serial communicaiton between SDA SCL and the BMP280
-#include <Wire.h>
-//Import general sensor library
-#include <Adafruit_Sensor.h>
-//Import BMP280 library so we can use its functions
+#include <Adafruit_BMP280.h>
+#include <Wire.h> //import Wire library for serial communicaiton between SDA SCL and the BMP280
+//#include <globals.h> //Import general sensor library
+#include <Adafruit_Sensor.h> //Import BMP280 library so we can use its functions
 #include <Adafruit_BMP280.h>
 
 Adafruit_BMP280 bmp;
+
+float getThermT(){
+  float avg = 0;
+
+  return avg;
+}
+
+//float getLightPercent(){
+  
+//  double light_percent = 0;
+//  // converts the value into the range of 0 and 100. 
+//  // A higher brightness is associated with a higher percentage
+//  return light_percent;
+//}
 
 void setup() {
   // put your setup code here, to run once:
@@ -18,7 +31,7 @@ void setup() {
     while(1);
   }
 
-  // Default settings from datasheet
+  // Default BMP280 sensor settings from datasheet 
     bmp.setSampling(Adafruit_BMP280::MODE_NORMAL,  /* Operating Mode. */   
                 Adafruit_BMP280::SAMPLING_X2,     /* Temp Oversampling */
                 Adafruit_BMP280::SAMPLING_X16,    /*Pressure Oversampling */
@@ -26,46 +39,22 @@ void setup() {
                 Adafruit_BMP280::STANDBY_MS_500); /* Standby Time */
 
   analogReadResolution(16); 
-
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   
-    Serial.print(F("Temperature = "));
+
+     //average 100 pressure readings to get Patm 
+
+
+    //print your data
     Serial.print(bmp.readTemperature());
-    Serial.println(" *C");
+    Serial.print(",");
 
-    Serial.print(F("Pressure = "));
     Serial.print(bmp.readPressure());
-    Serial.println(" Pa");
-
     Serial.println();
-    delay(2000);
+
+    delay(2000); // needs to be delected after you can print once every second
 }
 
-float getThermC(unsigned THERMISTORPIN = A5, 
-                      double BCOEFFICIENT = 3950, 
-                      double THERMISTORNOMINAL = 10000, 
-                      double SERIESRESISTOR = 10000,  
-                      double TEMPERATURENOMINAL = 25){
-
-  // Your Code Here: Collect readings from the analog pin and average them
-  /***************************************************************************/
-
-  /***************************************************************************/
-  
-  // convert the value to resistance
-  float frac = 65536 / analog - 1;
-  float res = SERIESRESISTOR / frac;
-
-  float steinhart;
-  steinhart = res / THERMISTORNOMINAL;          // (R/Ro)
-  steinhart = log(steinhart);                   // ln(R/Ro)
-  steinhart /= BCOEFFICIENT;                    // 1/B * ln(R/Ro)
-  steinhart += 1.0 / (TEMPERATURENOMINAL + 273.15); // + (1/To)
-  steinhart = 1.0 / steinhart;                  // Invert
-  steinhart -= 273.15;                          // convert to C
-
-  return steinhart;
-}
