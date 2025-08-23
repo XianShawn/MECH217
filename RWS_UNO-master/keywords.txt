@@ -1,0 +1,60 @@
+#######################################
+# Syntax Coloring Map For RWS_UNO
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+RWS_UNO	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin		KEYWORD2
+run	KEYWORD2
+bytesFree	KEYWORD2
+stampTime	KEYWORD2
+stampDate	KEYWORD2
+stampDateTime	KEYWORD2
+setTimeZone	KEYWORD2
+getTimeZone	KEYWORD2
+setVReg	KEYWORD2
+setVRef	KEYWORD2
+getVReg	KEYWORD2
+getVRef	KEYWORD2
+getVBat	KEYWORD2
+getV	KEYWORD2
+i2cScan		KEYWORD2
+dt	KEYWORD2
+dtAvg	KEYWORD2
+dtMax	KEYWORD2
+P		KEYWORD2
+PR		KEYWORD2
+PL		KEYWORD2
+PCS		KEYWORD2
+PCSL		KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+BUTTON_PIN	LITERAL1
+LED_PIN	LITERAL1
+TMP36_PIN	LITERAL1
+POT_LOW_PIN 	LITERAL1
+POT_PIN	LITERAL1
+POT_HIGH_PIN	LITERAL1
+AMP_PIN	LITERAL1
+CDS_PIN LITERAL1
+THERMISTOR_PIN	LITERAL1
+THERMISTOR_LOW_PIN	LITERAL1
+ANALOG_RES	LITERAL1
+BAT_PIN	LITERAL1
+BAT_FACTOR	LITERAL1
+KC_OFFSET	LITERAL1
+
