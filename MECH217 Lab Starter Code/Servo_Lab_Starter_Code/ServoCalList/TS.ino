@@ -26,6 +26,7 @@ double triWave(double freq){
 }
 
 double triSqSin(double freq){   // return a signal level in millivolts
-  retVal = 1600; // Replace this code with your triSqSin function
+  double retVal = 1600; // Replace this code with your triSqSin function
   return retVal; 
 }
+
