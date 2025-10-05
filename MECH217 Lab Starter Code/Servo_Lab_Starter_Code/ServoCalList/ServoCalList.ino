@@ -79,8 +79,8 @@ void loop() {
   // If sqWave() or triWave() is in the range 0 - 3300 mV, then (50 /1000.) will 
   // scale it to 0 to 165 degrees, which is close enough for practice.
   unsigned pos = 0;   // an angular position between 0 and 180 degrees
-//  pos = triWave(0.05) * 50 / 1000.;     // a slow moving triangular wave 
-  pos = triSqSin(1.0) * 50 / 1000.;  // custom time series function at 1 Hz
+  pos = triWave(0.05) * 50 / 1000.;     // a slow moving triangular wave 
+  //pos = triSqSin(1.0) * 50 / 1000.;  // custom time series function at 1 Hz
   
   // send the servo to that position
   myservo.write(pos);
@@ -96,3 +96,4 @@ void loop() {
   
   while(millis() > 120000) delay(200);  // stop doing things after a couple of minutes
 }
+
