@@ -118,12 +118,11 @@ void printInstructions() {
   Serial.print("Connect Servo control (orange) on pin ");
   Serial.println(servoPin);
   Serial.println("Connect the white analog output line to A3 for feedback.");
-  Serial.println("This voltage peaks at 2.5V, so it is OK for 3.3V boards like the Itsy Bitsy M0.");
-  Serial.println("Connect buttons or just use a jumper to record and play back from EEPROM.\n");
-  Serial.print("To record a sequence of motions, pull to ground and then release pin ");
+  Serial.println("Connect buttons to connect pin 10 and pin 12\n");
+  Serial.print("To record a sequence of motions, push the button between pin 10 and 12");
   Serial.println(recordButtonPin);
-  Serial.println("After releasing, move the servo by hand until the recording time runs out.\n");
-  Serial.print("To play back the recording, pull to ground and then release pin ");
+  Serial.println("After releasing the button, move the servo by hand until the recording time runs out or push the button again to stop recording\n");
+  Serial.print("To play back the recording, pull to ground using the jumper wire connected to Pin 7 and then release pin ");
   Serial.println(playButtonPin);
   Serial.print("Each recording or playback session will last about ");
   Serial.print(SAMPLE_DELAY * 26.15 / 50.,0);
