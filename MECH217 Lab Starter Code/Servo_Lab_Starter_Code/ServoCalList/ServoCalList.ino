@@ -1,4 +1,4 @@
-// 2021-04-14 Modified from Cal Starter to work better with M0 processors 
+// 2026-10-25 Modified from Cal Starter to work better with the new servo motor; 
 #include <Servo.h>
 uint8_t servoPin = 9;     // make sure these match your wiring
 uint8_t feedbackPin = A3;
@@ -10,9 +10,9 @@ Servo myservo;            // create servo object to control a servo
 
 // a list of angles with 999 to indicate the end of the list
 int angles[] = {0,1,2,3,5,10,15,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,165,170,175,178,179,180,999};
-float aValues[30]     = {0};  //make sure this is big enough if you add to the list!
-float aValuesDown[30] = {0};  //make sure this is big enough if you add to the list!
-float a10 = 0, a170 = 0;
+float aValues[30]     = {0};  //make sure this is big enough if you add to the list
+float aValuesDown[30] = {0};  //make sure this is big enough if you add to the list
+float a10 = 0, a170 = 0;      //"Edit this line"!!! use numbers you collected in Question 5.
 
 double goAngle(int a, unsigned wait = 1000) {
   myservo.attach(servoPin);       // bring the servo under control of the microcontroller
@@ -48,10 +48,10 @@ void setup() {
 
   // Start by getting some calibration values near the ends of the scale.
   // Make the wait extra long to be sure there's time enough to get there.
-  a10 = goAngle(10, 3000);
+  //a10 = goAngle(10, 3000);
   Serial.print("The analogRead() value for  10 degrees was ");
   Serial.println(a10);
-  a170 = goAngle(170, 3000);
+ // a170 = goAngle(170, 3000);
   Serial.print("The analogRead() value for 170 degrees was ");
   Serial.println(a170);
   Serial.print("These two values will be used to convert readings to angles.\n\n");
