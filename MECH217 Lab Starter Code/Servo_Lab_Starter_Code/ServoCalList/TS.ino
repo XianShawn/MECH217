@@ -3,7 +3,7 @@ double sqWave(double freq){
   // with amplitude almost covering the full 0 to 3300 mV range
   unsigned per = (1/freq) * 1000000;      // period of waveform [us]
   unsigned t = micros();                  // time right now [us]
-  if(micros() % per < per / 2) return 100;// low in first half period
+  if(micros() % per < per / 2) return 1500;// low in first half period
   else return 3200;                       // otherwise high
 }
 
